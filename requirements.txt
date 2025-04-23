@@ -1,0 +1,8 @@
+# requirements.txt
+plotly
+dash
+h3
+geopandas
+pandas
+shapely
+numpy # For random data generation later 
