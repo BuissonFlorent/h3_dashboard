@@ -1,0 +1,48 @@
+PS C:\Users\flore\Cursor projects\h3_dashboard> pytest .\tests\test_controls.py -v          
+====================================== test session starts ======================================
+platform win32 -- Python 3.13.2, pytest-7.4.3, pluggy-1.6.0 -- c:\Users\flore\Cursor projects\h3_dashboard\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\flore\Cursor projects\h3_dashboard
+plugins: dash-2.14.2, cov-4.1.0, mock-3.12.0
+collected 2 items                                                                                
+
+tests/test_controls.py::test_control_panel_contains_dropdown PASSED                        [ 50%]
+tests/test_controls.py::test_dropdown_selection_changes FAILED                             [100%]
+
+=========================================== FAILURES ============================================
+________________________________ test_dropdown_selection_changes ________________________________ 
+
+    def test_dropdown_selection_changes():
+        from dash.testing.application_runners import import_app
+        from dash.testing.browser import Browser
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support.ui import WebDriverWait
+        from selenium.webdriver.support import expected_conditions as EC
+
+        app = import_app("app_dashboard")
+>       browser = Browser(app, browser_type="chrome", headless=True)
+E       TypeError: Browser.__init__() got an unexpected keyword argument 'browser_type'
+
+tests\test_controls.py:27: TypeError
+------------------------------------- Captured stdout call -------------------------------------- 
+Loaded 809 hexagon IDs from chicago_hex_ids.txt
+======================================= warnings summary ======================================== 
+tests/test_controls.py::test_dropdown_selection_changes
+  c:\Users\flore\Cursor projects\h3_dashboard\.venv\Lib\site-packages\geopandas\_compat.py:7: DeprecationWarning:
+
+  The 'shapely.geos' module is deprecated, and will be removed in a future version. All attributes of 'shapely.geos' are available directly from the top-level 'shapely' namespace (since shapely 2.0.0).
+
+tests/test_controls.py::test_dropdown_selection_changes
+  C:\Users\flore\Cursor projects\h3_dashboard\boundary_to_hexmap.py:185: DeprecationWarning:      
+
+  *choroplethmapbox* is deprecated! Use *choroplethmap* instead. Learn more at: https://plotly.com/python/mapbox-to-maplibre/
+
+tests/test_controls.py::test_dropdown_selection_changes
+  c:\Users\flore\Cursor projects\h3_dashboard\.venv\Lib\site-packages\_plotly_utils\basevalidators.py:2713: DeprecationWarning:
+
+  *choroplethmapbox* is deprecated! Use *choroplethmap* instead. Learn more at: https://plotly.com/python/mapbox-to-maplibre/
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== short test summary info ==================================== 
+FAILED tests/test_controls.py::test_dropdown_selection_changes - TypeError: Browser.__init__() got an unexpected keyword argument 'browser_type'
+============================ 1 failed, 1 passed, 3 warnings in 1.34s ============================
